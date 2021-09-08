@@ -29,7 +29,7 @@ aws rds describe-db-instances | jq ".DBInstances[].VpcSecurityGroups[].VpcSecuri
 .. Enable inbound network traffic:
 +
 ```
-aws ec2 authorize-security-group-ingress --group-id <group-id> --protocol all --port 3006 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id <group-id> --protocol tcp --port 3006 --cidr 0.0.0.0/0
 ```
 +
 . Get instance id:
