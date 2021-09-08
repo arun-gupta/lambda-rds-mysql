@@ -19,14 +19,14 @@ aws rds create-db-instance \
     --backup-retention-period 3 
 ```
 +
-. Create inbound role for the security group:
+. Allow inbound network traffic to the database subnet:
 .. Get security group id:
 +
 ```
 aws rds describe-db-instances | jq ".DBInstances[].VpcSecurityGroups[].VpcSecurityGroupId"
 ```
 +
-.. Add inbound role:
+.. Enable inbound network traffic:
 +
 ```
 aws ec2 authorize-security-group-ingress --group-id <group-id> --protocol all --port 3006 --cidr 0.0.0.0/0
